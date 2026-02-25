@@ -155,25 +155,25 @@ curl --get http://localhost:8080/api/rag/ask \
      --data-urlencode "question=What is Spring Boot?"
    ```
 
-📊 Engineering Considerations
+## 📊 Engineering Considerations
 
-✔ Scalability
+## ✔ Scalability
 Vector search indexed with pgvector
 Top-K configurable
 Embeddings cached strategy-ready
 Dockerized for cloud deployment
 
-✔ Performance
+## ✔ Performance
 Embedding model is lightweight and cost-efficient
 Similarity search happens inside PostgreSQL
 Stateless service layer for horizontal scaling
 
-✔ Security
+## ✔ Security
 API key externalized via environment variables
 No sensitive data stored in prompts
 Database credentials configurable
 
-✔ Extensibility
+## ✔ Extensibility
 
 Can be extended with:
 
@@ -184,7 +184,7 @@ Multi-tenant isolation
 Hybrid search (BM25 + vector)
 Observability (Micrometer, OpenTelemetry)
 
-🧩 Advanced Improvements (Production Roadmap)
+## 🧩 Advanced Improvements (Production Roadmap)
 
 Add token-aware context truncation
 Add vector index tuning
@@ -195,7 +195,7 @@ Add prompt versioning
 Add audit logging for AI interactions
 Add evaluation metrics (RAG accuracy testing)
 
-🧠 Senior-Level Concepts Demonstrated
+## 🧠 Senior-Level Concepts Demonstrated
 
 Separation of concerns (Controller / Service / AI layer)
 Clean prompt engineering
@@ -207,9 +207,9 @@ JVM ecosystem + AI integration
 Understanding of embedding vs generation models
 Understanding of vector similarity metrics
 
-📈 Production Deployment Strategy
+## 📈 Production Deployment Strategy
 
-Recommended cloud deployment:
+## Recommended cloud deployment:
 
 App: Kubernetes / ECS / Azure Container Apps
 DB: Managed PostgreSQL with pgvector
@@ -218,7 +218,7 @@ Observability: Prometheus + Grafana
 LLM: External provider (OpenAI) or self-hosted model
 
 
-This project showcases:
+## This project showcases:
 
 Modern AI system integration
 Backend architectural maturity
@@ -228,10 +228,9 @@ Understanding of LLM lifecycle
 Cost/performance trade-offs
 Practical GenAI backend implementation
 
-It is not a demo toy — it is a foundation for enterprise AI systems.
 
-👤 Author
+## 👤 Author
 Senior backend engineer exploring AI-native system design and production-grade GenAI integration within the Spring ecosystem.
 
-📄 License
-MIT
+## 📄 License
+  MIT
