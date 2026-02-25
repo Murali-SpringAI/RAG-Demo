@@ -43,24 +43,18 @@ It bridges traditional backend engineering with modern AI system design.
 ---
 
 # 🏗 Architecture
-User Request
-↓
-REST Controller
-↓
-Service Layer
-↓
-Vector Store (PGVector)
-↓
-Embedding Model (OpenAI)
-↓
-Similarity Search
-↓
-Context Injection
-↓
-LLM (OpenAI GPT)
-↓
-Response
+## Architecture Diagram
 
+```mermaid
+flowchart TD
+    A[User Request] --> B[REST Controller]
+    B --> C[Service Layer]
+    C --> D[Vector Store (PGVector)]
+    D --> E[Embedding Model (OpenAI)]
+    E --> F[Similarity Search]
+    F --> G[Context Injection]
+    G --> H[LLM (OpenAI GPT)]
+    H --> I[Response]
 ---
 
 # 🔎 Technical Deep Dive
@@ -104,60 +98,7 @@ This enforces grounding and reduces hallucinations.
 
 ---
 
-# 🐳 Infrastructure Setup
 
-## Run PostgreSQL with pgvector
-
-```bash
-
-docker-compose up -d
-
-Container includes:
-PostgreSQL 16
-pgvector extension
-
-Database:
-Name: ragdb
-User: postgres
-Password: postgres
-
-⚙️ Application Configuration
-
-application.yml
-
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/ragdb
-    username: postgres
-    password: postgres
-
-  ai:
-    openai:
-      api-key: ${OPENAI_API_KEY}
-      embedding:
-        options:
-          model: text-embedding-3-small
-
-    vectorstore:
-      pgvector:
-        initialize-schema: true
-        
-▶️ Running the Application
-
-mvn clean install
-mvn spring-boot:run
-
-🧪 API Endpoints
-
-Add Document
-curl -X POST http://localhost:8080/api/rag/documents \
-     -H "Content-Type: text/plain" \
-     -d "Spring Boot is a Java framework for building microservices."
-
-Ask Question
-curl --get http://localhost:8080/api/rag/ask \
-     --data-urlencode "question=What is Spring Boot?"
-     
 📊 Engineering Considerations
 
 ✔ Scalability
@@ -231,7 +172,61 @@ Understanding of LLM lifecycle
 Cost/performance trade-offs
 Practical GenAI backend implementation
 
-It is not a demo toy — it is a foundation for enterprise AI systems.
+
+# 🐳 Infrastructure Setup
+
+## Run PostgreSQL with pgvector
+
+```bash
+
+docker-compose up -d
+
+Container includes:
+PostgreSQL 16
+pgvector extension
+
+Database:
+Name: ragdb
+User: postgres
+Password: postgres
+
+⚙️ Application Configuration
+
+application.yml
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ragdb
+    username: postgres
+    password: postgres
+
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      embedding:
+        options:
+          model: text-embedding-3-small
+
+    vectorstore:
+      pgvector:
+        initialize-schema: true
+        
+▶️ Running the Application
+
+mvn clean install
+mvn spring-boot:run
+
+🧪 API Endpoints
+
+Add Document
+curl -X POST http://localhost:8080/api/rag/documents \
+     -H "Content-Type: text/plain" \
+     -d "Spring Boot is a Java framework for building microservices."
+
+Ask Question
+curl --get http://localhost:8080/api/rag/ask \
+     --data-urlencode "question=What is Spring Boot?"
+```
 
 👤 Author
 Senior backend engineer exploring AI-native system design and production-grade GenAI integration within the Spring ecosystem.
