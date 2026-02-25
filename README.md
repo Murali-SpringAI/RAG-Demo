@@ -48,11 +48,11 @@ It bridges traditional backend engineering with modern AI system design.
 flowchart TD
     A[User Request] --> B[REST Controller]
     B --> C[Service Layer]
-    C --> D[Vector Store (PGVector)]
-    D --> E[Embedding Model (OpenAI)]
+    C --> D[Vector Store - PGVector]
+    D --> E[Embedding Model - OpenAI]
     E --> F[Similarity Search]
     F --> G[Context Injection]
-    G --> H[LLM (OpenAI GPT)]
+    G --> H[LLM - OpenAI GPT]
     H --> I[Response]
     
 ```
