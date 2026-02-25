@@ -49,18 +49,18 @@ It bridges traditional backend engineering with modern AI system design.
 ```mermaid
 flowchart TD
     %% Users
-    U[User] --> API[REST Controller<br/><sub>Handles HTTP requests</sub>]
+    U[User] --> API[REST Controller]
 
     %% Application Layer
-    API --> SVC[Service Layer<br/><sub>Orchestrates retrieval and LLM calls</sub>]
+    API --> SVC[Service Layer]
     
     %% Vector Retrieval
-    SVC --> EMB[Embedding Model<br/><sub>OpenAI API generates embeddings</sub>]
-    SVC --> VDB[Vector Store (PGVector)<br/><sub>Stores embeddings for similarity search</sub>]
+    SVC --> EMB[Embedding Model (OpenAI)]
+    SVC --> VDB[Vector Store (PGVector)]
     VDB --> SVC
 
     %% LLM Layer
-    SVC --> LLM[LLM (OpenAI GPT)<br/><sub>Generates final response</sub>]
+    SVC --> LLM[LLM (OpenAI GPT)]
     LLM --> SVC
 
     %% Response back to User
@@ -137,14 +137,6 @@ DB: Managed PostgreSQL with pgvector
 Secrets: Vault / AWS Secrets Manager
 Observability: Prometheus + Grafana
 LLM: External provider (OpenAI) or self-hosted model
-This project showcases:
-Modern AI system integration
-Backend architectural maturity
-Clean, production-grade engineering practices
-Understanding of vector databases
-Understanding of LLM lifecycle
-Cost/performance trade-offs
-Practical GenAI backend implementation
 🐳 Infrastructure Setup
 Run PostgreSQL with pgvector
 docker-compose up -d
@@ -188,5 +180,3 @@ curl --get http://localhost:8080/api/rag/ask \
 Senior backend engineer exploring AI-native system design and production-grade GenAI integration within the Spring ecosystem.
 📄 License
 MIT
-
----
