@@ -66,7 +66,6 @@ flowchart TD
     %% Response back to User
     SVC --> API
     API --> U
-
 🔎 Technical Deep Dive
 1️⃣ Document Ingestion
 When a document is added:
