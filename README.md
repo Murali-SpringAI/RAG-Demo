@@ -42,20 +42,33 @@ It bridges traditional backend engineering with modern AI system design.
 
 ---
 
-# 🏗 Architecture
 ## Architecture Diagram
+
+## RAG-based AI System - Container Diagram
 
 ```mermaid
 flowchart TD
-    A[User Request] --> B[REST Controller]
-    B --> C[Service Layer]
-    C --> D[Vector Store (PGVector)]
-    D --> E[Embedding Model (OpenAI)]
-    E --> F[Similarity Search]
-    F --> G[Context Injection]
-    G --> H[LLM (OpenAI GPT)]
-    H --> I[Response]
+    %% Users
+    U[User] --> API[REST Controller<br/><sub>Handles HTTP requests</sub>]
+
+    %% Application Layer
+    API --> SVC[Service Layer<br/><sub>Orchestrates retrieval and LLM calls</sub>]
+    
+    %% Vector Retrieval
+    SVC --> EMB[Embedding Model<br/><sub>OpenAI API generates embeddings</sub>]
+    SVC --> VDB[Vector Store (PGVector)<br/><sub>Stores embeddings for similarity search</sub>]
+    VDB --> SVC
+
+    %% LLM Layer
+    SVC --> LLM[LLM (OpenAI GPT)<br/><sub>Generates final response</sub>]
+    LLM --> SVC
+
+    %% Response back to User
+    SVC --> API
+    API --> U
+    
 ---
+
 
 # 🔎 Technical Deep Dive
 
