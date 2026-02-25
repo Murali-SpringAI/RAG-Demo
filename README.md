@@ -42,24 +42,20 @@ It bridges traditional backend engineering with modern AI system design.
 
 ---
 
-# 🏗 Architecture
-User Request
-↓
-REST Controller
-↓
-Service Layer
-↓
-Vector Store (PGVector)
-↓
-Embedding Model (OpenAI)
-↓
-Similarity Search
-↓
-Context Injection
-↓
-LLM (OpenAI GPT)
-↓
-Response
+## Architecture Diagram
+
+```mermaid
+flowchart TD
+    A[User Request] --> B[REST Controller]
+    B --> C[Service Layer]
+    C --> D[Vector Store (PGVector)]
+    D --> E[Embedding Model (OpenAI)]
+    E --> F[Similarity Search]
+    F --> G[Context Injection]
+    G --> H[LLM (OpenAI GPT)]
+    H --> I[Response]
+    
+```
 
 ---
 
