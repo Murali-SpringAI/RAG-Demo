@@ -220,12 +220,12 @@ LLM: External provider (OpenAI) or self-hosted model
 
 ## This project showcases:
 
-Modern AI system integration
-Backend architectural maturity
-Clean, production-grade engineering practices
-Understanding of vector databases
-Understanding of LLM lifecycle
-Cost/performance trade-offs
+Modern AI system integration 
+Backend architectural maturity 
+Clean, production-grade engineering practices 
+Understanding of vector databases 
+Understanding of LLM lifecycle 
+Cost/performance trade-offs 
 Practical GenAI backend implementation
 
 

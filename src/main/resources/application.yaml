@@ -9,7 +9,7 @@ spring:
 
   ai:
     openai:
-      api-key: "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"
+      api-key: "Your secret Key"
       embedding:
         options:
           model: text-embedding-3-small
